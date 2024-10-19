@@ -42,6 +42,9 @@ autolabeler:
   - label: feature
     branch:
       - '/^feat(ure)?[/-].+/'
+  - label: enhancement
+    branch:
+      - '/(enhancement|improve)[/-].+/'
   - label: fix
     branch:
       - '/^fix[/-].+/'
@@ -59,12 +62,12 @@ autolabeler:
       - '/(refactor|refactoring)[/-].+/'
   - label: documentation
     branch:
-      - '/doc(umentation)[/-].+/'
+      - '/^doc(umentation)[/-].+/'
     files:
       - '*.md'
-  - label: release
+  - label: dependencies
     branch:
-      - '/release[/-].+/'
-  - label: enhancement
+      - '/^dep(endencies)[/-].+/'
+  - label: others
     branch:
-      - '/(enhancement|improve)[/-].+/'
+      - '/^others[/-].+/'
