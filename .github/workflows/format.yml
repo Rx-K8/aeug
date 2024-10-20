@@ -25,7 +25,7 @@ jobs:
       - name: Add path for Poetry
         run: echo "${HOME}/.poetry/bin" >> $GITHUB_PATH
       - name: install dependencies
-        run: poetry run pip install -r requirements.txt
+        run: poetry run pip install -r requirements_dev.txt
       - name: poetry run black format
         run: black .
       - name: poetry run isort format
