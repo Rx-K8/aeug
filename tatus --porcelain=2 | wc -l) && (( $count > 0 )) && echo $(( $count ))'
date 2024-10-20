@@ -1,0 +1,145 @@
+[33mcommit 95b923a7301f21e5d93d03c5f4bc8668f8c73204[m[33m ([m[1;36mHEAD -> [m[1;32mfeat/actions-format[m[33m)[m
+Author: Keito Fukuoka <keito.0o0.kirby@gmail.com>
+Date:   Sun Oct 20 07:11:21 2024 +0000
+
+    feat(workflows): add formatting workflow
+    
+    This commit introduces a new GitHub Actions workflow for code formatting.
+    The workflow runs on every push to any branch except 'main'. It sets up
+    Python 3.10, installs Poetry, and runs black and isort for code formatting.
+
+[33mcommit 051da92c50984bf625b4913948e9cfe17c81000d[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m
+Merge: 9d951cd bcacce9
+Author: FukuokaKEITO <98329079+Rx-K8@users.noreply.github.com>
+Date:   Sat Oct 19 12:48:01 2024 +0900
+
+    Merge pull request #5 from Rx-K8/dep/pyproject
+    
+    feat: add black and isort configurations
+
+[33mcommit bcacce9fd74fc4ea8508d8f243134deece479a47[m[33m ([m[1;31morigin/dep/pyproject[m[33m)[m
+Author: Keito Fukuoka <keito.0o0.kirby@gmail.com>
+Date:   Sat Oct 19 03:47:10 2024 +0000
+
+    feat: add black and isort configurations
+    
+    Added configurations for black and isort in pyproject.toml:
+    - Set line-length to 79 for black.
+    - Set profile to "black" for isort.
+
+[33mcommit 9d951cde1d31acc9810a61332e88e191ab8ab108[m
+Merge: bdd0634 e50bece
+Author: FukuokaKEITO <98329079+Rx-K8@users.noreply.github.com>
+Date:   Sat Oct 19 12:44:23 2024 +0900
+
+    Merge pull request #4 from Rx-K8/dependences/requirements
+    
+    dependencies: update requirements with specific torch versions
+
+[33mcommit e50beceb25bb027052384c9f837db4017d9ecc0e[m[33m ([m[1;31morigin/dependences/requirements[m[33m)[m
+Author: Keito Fukuoka <keito.0o0.kirby@gmail.com>
+Date:   Sat Oct 19 03:42:34 2024 +0000
+
+    dependencies: update requirements with specific torch versions
+    
+    - Added specific versions for torch, torchvision, and torchaudio
+    - Included new dependencies: black, isort, and flake8
+    - Removed unspecified torch, torchvision, and torchaudio entries
+    - Added index URL for PyTorch wheel
+
+[33mcommit bdd0634fd9523a722df7dd3858246faefc05ebe5[m
+Merge: 681ca28 6aae0b0
+Author: FukuokaKEITO <98329079+Rx-K8@users.noreply.github.com>
+Date:   Sat Oct 19 12:21:31 2024 +0900
+
+    Merge pull request #3 from Rx-K8/feature/poetry
+    
+    feat(poetry): add poetry.lock file for dependency management
+
+[33mcommit 6aae0b029b94c028e9f0ff09d700db65285ca4ee[m[33m ([m[1;31morigin/feature/poetry[m[33m)[m
+Author: Keito Fukuoka <keito.0o0.kirby@gmail.com>
+Date:   Sat Oct 19 03:18:31 2024 +0000
+
+    feat(poetry): add poetry.lock file for dependency management
+    
+    This commit adds the poetry.lock file which is automatically generated
+    by Poetry 1.8.4. The file includes metadata such as lock-version,
+    python-versions, and content-hash. This file should not be changed by
+    hand.
+
+[33mcommit 0cc45fad8ecdc05984fe6de6ae4a65d222b1dc85[m
+Author: Keito Fukuoka <keito.0o0.kirby@gmail.com>
+Date:   Sat Oct 19 03:10:36 2024 +0000
+
+    feat(pyproject): add initial pyproject.toml for poetry
+    
+    Added a new pyproject.toml file to configure the project with Poetry.
+    This includes basic project metadata and dependencies.
+
+[33mcommit 681ca28ed87076d41719e8ef184b5c4dda47383b[m
+Merge: 018973e df96789
+Author: FukuokaKEITO <98329079+Rx-K8@users.noreply.github.com>
+Date:   Sat Oct 19 11:57:01 2024 +0900
+
+    Merge pull request #2 from Rx-K8/fix/release-drafter
+    
+    fix: update release-drafter labels
+
+[33mcommit df96789fee9a8a0ca52cadc432262b70f80e6c11[m[33m ([m[1;31morigin/fix/release-drafter[m[33m)[m
+Author: Keito Fukuoka <keito.0o0.kirby@gmail.com>
+Date:   Sat Oct 19 02:54:10 2024 +0000
+
+    fix: update release-drafter labels
+    
+    - Added 'enhancement' label for branches matching '/(enhancement|improve)[/-].+/'
+    - Updated 'documentation' label to match '/^doc(umentation)[/-].+/'
+    - Changed 'release' label to 'dependencies' for branches matching '/^dep(endencies)[/-].+/'
+    - Added 'others' label for branches matching '/^others[/-].+/'
+
+[33mcommit 018973e7fd7eb7187b214390cabad152b4cf9c08[m
+Merge: 68a5c66 d9c425b
+Author: FukuokaKEITO <98329079+Rx-K8@users.noreply.github.com>
+Date:   Sat Oct 19 11:50:29 2024 +0900
+
+    Merge pull request #1 from Rx-K8/dependences/requirements
+    
+    dependencies: add initial dependencies to requirements.txt
+
+[33mcommit d9c425bddc32a326d7ba0dd86c8d5ed71d40fac9[m
+Author: Keito Fukuoka <keito.0o0.kirby@gmail.com>
+Date:   Sat Oct 19 02:48:12 2024 +0000
+
+    dependencies: add initial dependencies to requirements.txt
+    
+    Added the following dependencies to the requirements.txt file:
+    - pybind11
+    - nmslib from GitHub repository
+    - pyserini
+    - faiss-cpu
+    - torch
+    - torchvision
+    - torchaudio
+
+[33mcommit 68a5c66f7ce556dadea22a4a21ea6baf56410796[m
+Author: Keito Fukuoka <keito.0o0.kirby@gmail.com>
+Date:   Sat Oct 19 02:45:36 2024 +0000
+
+    feat: add .gitignore and LICENSE files
+    
+    - Added a comprehensive .gitignore file to exclude unnecessary files
+      from the repository. This includes rules for macOS, Linux, Windows,
+      Visual Studio Code, Vim, Emacs, Python, and more.
+    - Added an Apache License 2.0 file to the repository to define the
+      terms and conditions for use, reproduction, and distribution of the
+      project.
+
+[33mcommit d7f4009f2a4fed57ee62c712323630a711607408[m
+Author: Keito Fukuoka <keito.0o0.kirby@gmail.com>
+Date:   Sat Oct 19 02:43:59 2024 +0000
+
+    feat: add release drafter configuration
+    
+    - Added `.github/release-drafter.yml` for automated release notes
+    - Configured categories, templates, and autolabeler rules
+    - Added workflow `.github/workflows/release-drafter.yml` to update
+      release drafts on push to main and pull request events
