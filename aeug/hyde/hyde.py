@@ -1,9 +1,7 @@
 from aeug.generation.generator import Generator
 from aeug.prompt.prompter import Prompter
 
-TEMPLATE = (
-    WEB_SEARCH
-) = """Please write a passage to answer the question.
+TEMPLATE = """Please write a passage to answer the question.
 Question:{}
 Passage:"""
 
@@ -27,6 +25,7 @@ class Hyde:
 
 
 if __name__ == "__main__":
-    hyde = Hyde("meta-llama/Meta-Llama-3.1-8B-Instruct")
+    # hyde = Hyde("meta-llama/Meta-Llama-3.1-8B-Instruct")
+    hyde = Hyde("meta-llama/Llama-3.2-1B")
     output = hyde.generate("What is the capital of France?")
     print(output)
