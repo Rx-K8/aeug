@@ -1,0 +1,3 @@
+wheel
+pybind11
+nmslib @ git+https://github.com/nmslib/nmslib.git#egg=nmslib&subdirectory=python_bindings
