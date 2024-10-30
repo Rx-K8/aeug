@@ -5,12 +5,6 @@ from pyserini.search import FaissSearcher, LuceneSearcher
 from pyserini.search.faiss import AutoQueryEncoder
 
 
-class SearcherBase(ABC):
-    @abstractmethod
-    def search(self, hyde_vector):
-        raise NotImplementedError
-
-
 class VectorSearcher(SearcherBase):
     def __init__(
         self, query_encoder_id: str, document_id: str = "msmarco-v1-passage"
