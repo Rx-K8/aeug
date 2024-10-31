@@ -1,14 +1,17 @@
 from pyserini.search import get_topics
 from pyserini.search.lucene import LuceneSearcher
 
+from aeug.io.text import TextWriter
 from aeug.search.abc import BaseSearcher
 from aeug.utils.convert import CONVERTERS
 from aeug.utils.mappings import BM25FLAT_INDEX, TOPICS
+from aeug.utils.paths import VALOUTPUT_DIR
 from aeug.utils.typing import CommonSearchOutput, ValidationFormat
 
 
 class BM25(BaseSearcher):
     def __init__(self, benchmark_name: str):
+        self.benchmark_name = benchmark_name
         self.topics = get_topics(TOPICS[benchmark_name])
         self.searcher = LuceneSearcher.from_prebuilt_index(
             BM25FLAT_INDEX[benchmark_name]
@@ -51,12 +54,11 @@ class BM25(BaseSearcher):
 
         outputs = []
         for search_output in search_outputs:
-            print(search_output)
-            print(type(search_output))
             output = f"{search_output.topic_id} {search_output.q0} {search_output.doc_id} {search_output.rank} {search_output.score: 6f} {search_output.run_tag}"
             outputs.append(output)
-        with open("output.txt", "w") as f:
-            f.write("\n".join(outputs))
+        output_file = VALOUTPUT_DIR / f"{self.benchmark_name}.txt"
+        TextWriter(output_file).write(outputs)
+
 
 if __name__ == "__main__":
     # bm25 = BM25("beir_trec_covid")

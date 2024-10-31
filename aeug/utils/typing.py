@@ -3,8 +3,6 @@ from typing import Union
 
 from pydantic import BaseModel
 
-PathLike = Union[str, os.PathLike]
-
 
 class CommonSearchOutput(BaseModel):
     query: str
@@ -35,3 +33,8 @@ class ValidationFormat(BaseModel):
     rank: int
     score: float
     run_tag: str = "anserini"
+
+
+PathLike = Union[str, os.PathLike]
+
+WriteOutput = Union[CommonSearchOutput, ValidationFormat]
