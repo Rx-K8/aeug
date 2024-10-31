@@ -11,12 +11,16 @@ class BaseConvert(ABC):
     ) -> CommonSearchOutput:
         raise NotImplementedError
 
-    @abstractmethod
-    def to_val_format(self, search_output: CommonSearchOutput):
-        raise NotImplementedError
+    def to_val_format(self, topic_id, search_output: CommonSearchOutput):
+        return ValidationFormat(
+            topic_id=topic_id,
+            doc_id=search_output.doc_id,
+            rank=search_output.rank,
+            score=search_output.score,
+        )
 
 
-class BEIRConvert:
+class BEIRConvert(BaseConvert):
     def to_common_search_output(
         self, query: str, doc: str, rank: int, score: float
     ):
@@ -29,16 +33,8 @@ class BEIRConvert:
             score=score,
         )
 
-    def to_val_format(self, topic_id, search_output: CommonSearchOutput):
-        return ValidationFormat(
-            topic_id=topic_id,
-            doc_id=search_output.doc_id,
-            rank=search_output.rank,
-            score=search_output.score,
-        )
 
-
-class TRECConvert:
+class TRECConvert(BaseConvert):
     def to_common_search_output(
         self, query: str, doc: str, rank: int, score: float
     ):
@@ -49,14 +45,6 @@ class TRECConvert:
             doc_id=dict_doc["id"],
             rank=rank,
             score=score,
-        )
-
-    def to_val_format(self, topic_id, search_output: CommonSearchOutput):
-        return ValidationFormat(
-            topic_id=topic_id,
-            doc_id=search_output.doc_id,
-            rank=search_output.rank,
-            score=search_output.score,
         )
 
 
