@@ -1,11 +1,11 @@
-from loguru import logger
+import loguru 
 
 from aeug.logger_config import LOG_DIR
 
 
 def setup_logger(name: str, level: str = "INFO"):
     log_file = LOG_DIR / f"{{time}}_{name}.log"
-    logger.add(
+    loguru.logger.add(
         log_file,
         backtrace=True,
         level=level,
@@ -13,7 +13,7 @@ def setup_logger(name: str, level: str = "INFO"):
         encoding="utf-8",
     )
 
-    return logger
+    return loguru.logger
 
 
-CUSTOM_LOGGER = setup_logger("aeug")
+logger = setup_logger("aeug")
