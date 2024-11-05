@@ -20,7 +20,6 @@ class Questions:
             )
 
     def parse(self, text: str) -> list[str]:
-        print(text)
         cleaned_text = text.replace("<|eot_id|>", "")
         lines = [
             re.match(self.pattern, line).group(1)
@@ -37,6 +36,21 @@ class Questions:
             raise InsufficientQuestionsError(error_message)
         else:
             logger.info("Questions are sufficient.")
+
+    def __len__(self) -> int:
+        return len(self.questions)
+
+    def __iter__(self):
+        self.iter_index = 0
+        return self
+
+    def __next__(self):
+        if self.iter_index < len(self.questions):
+            question = self.questions[self.iter_index]
+            self.iter_index += 1
+            return question
+        else:
+            raise StopIteration
 
     def __repr__(self) -> str:
         return (
@@ -62,6 +76,7 @@ if __name__ == "__main__":
 2. This is the second line.
 3. This is the third line.
 4. This is the fourth line.
+5. This is the fifth line.
 6. This line should not be included.
 """
     try:
