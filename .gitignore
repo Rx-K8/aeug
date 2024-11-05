@@ -326,4 +326,4 @@ cython_debug/
 #.idea/
 contriever_msmarco_index.tar.gz
 contriever_msmarco_index/
-results.jsonl
+val_outputs/
