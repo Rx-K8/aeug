@@ -2,10 +2,10 @@ from pyserini.search import get_topics
 from pyserini.search.lucene import LuceneSearcher
 
 from aeug.io.text import TextWriter
+from aeug.paths import VALOUTPUT_DIR
 from aeug.search.abc import BaseSearcher
 from aeug.utils.convert import CONVERTERS
 from aeug.utils.mappings import BM25FLAT_INDEX, TOPICS
-from aeug.utils.paths import VALOUTPUT_DIR
 from aeug.utils.typing import CommonSearchOutput, ValidationFormat
 
 

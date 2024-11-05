@@ -1,10 +1,11 @@
-import loguru 
+import loguru
 
-from aeug.logger_config import LOG_DIR
+from aeug.paths import LOG_DIR
 
 
 def setup_logger(name: str, level: str = "INFO"):
-    log_file = LOG_DIR / f"{{time}}_{name}.log"
+    # log_file = LOG_DIR / f"{{time}}_{name}.log"
+    log_file = LOG_DIR / f"{name}.log"
     loguru.logger.add(
         log_file,
         backtrace=True,
