@@ -18,8 +18,8 @@ def main():
     aeug = Aeug(
         "hugging-quants/Meta-Llama-3.1-70B-Instruct-AWQ-INT4", "trec2020"
     )
-    topics = get_topics("dl19-passage")
-    qrels = get_qrels("dl19-passage")
+    topics = get_topics("dl20-passage")
+    qrels = get_qrels("dl20-passage")
 
     results = []
     for qid in tqdm(topics):
