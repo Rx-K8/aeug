@@ -37,6 +37,9 @@ class Questions:
         else:
             logger.info("Questions are sufficient.")
 
+    def __getitem__(self, index: int) -> str:
+        return self.questions[index]
+
     def __len__(self) -> int:
         return len(self.questions)
 

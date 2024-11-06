@@ -35,7 +35,7 @@ class Aeug:
         score = self.contriever.dot_score(query, content)
         return score
 
-    def search(self, query, top_k: int = 10):
+    def search(self, query, top_k: int = 5):
         first_hits: list[CommonSearchOutput] = self.first_step.search(
             query, top_k
         )
@@ -47,9 +47,17 @@ class Aeug:
             except Exception as e:
                 logger.exception(e)
 
-            for question in questions:
+            max_score = (None, -float("inf"))
+            for i, question in enumerate(questions):
                 question_score = self.similarity(query, question)
-                print(question_score)
+                if max_score[1] < question_score:
+                    max_score = (i, question_score)
+                hit.score = max_score[1]
+        sorted_hits = sorted(first_hits, key=lambda x: x.score, reverse=True)
+        for i, hit in enumerate(sorted_hits):
+            hit.rank = i + 1
+
+        return sorted_hits
 
 
 
