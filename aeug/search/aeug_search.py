@@ -3,6 +3,7 @@ import textwrap
 from transformers import AutoModel, AutoTokenizer
 
 from aeug.contriever import Contriever
+from aeug.exceptions import InsufficientQuestionsError
 from aeug.generation.generator import Generator
 from aeug.logger_config import logger
 from aeug.outputs.questios import Questions
@@ -44,7 +45,7 @@ class Aeug:
             output = self.generator.generate(prompt)
             try:
                 questions = Questions.from_string(output)
-            except Exception as e:
+            except InsufficientQuestionsError as e:
                 logger.exception(e)
 
             max_score = (None, -float("inf"))
@@ -58,9 +59,6 @@ class Aeug:
             hit.rank = i + 1
 
         return sorted_hits
-
-
-
 
 
 if __name__ == "__main__":
