@@ -34,6 +34,7 @@ BM25FLAT_INDEX = MappingProxyType(
         "beir_cqadupstack_webmasters": "beir-v1.0.0-cqadupstack-webmasters.flat",
         "beir_cqadupstack_wordpress": "beir-v1.0.0-cqadupstack-wordpress.flat",
         # TREC
+        "trec2019": "msmarco-v1-passage",
         "trec2020": "msmarco-v1-passage",
     }
 )
@@ -44,6 +45,7 @@ TOPICS = MappingProxyType(
         # BEIR(Benchmarking IR)
         "beir_trec_covid": "beir-v1.0.0-trec-covid-test",
         # TREC
+        # "trec2019": "dl19",
         "trec2020": "dl20",
     }
 )

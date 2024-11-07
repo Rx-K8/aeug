@@ -9,23 +9,25 @@ from aeug.paths import VALOUTPUT_DIR
 
 # from aeug.hyde.hyde import Hyde
 from aeug.search.aeug_search import Aeug
+from aeug.utils.mappings import TOPICS
 from aeug.utils.typing import ValidationFormat
 
 
 def main():
     # model_id = "meta-llama/Llama-3.1-70B-Instruct"
     # hyde = Hyde(model_id)
+    bench_mark = "trec2020"
     aeug = Aeug(
-        "hugging-quants/Meta-Llama-3.1-70B-Instruct-AWQ-INT4", "trec2020"
+        "hugging-quants/Meta-Llama-3.1-70B-Instruct-AWQ-INT4", bench_mark
     )
-    topics = get_topics("dl20-passage")
-    qrels = get_qrels("dl20-passage")
+    topics = get_topics(TOPICS[bench_mark])
+    qrels = get_qrels(TOPICS[bench_mark])
 
     results = []
     for qid in tqdm(topics):
         if qid in qrels:
             query = topics[qid]["title"]
-            hits = aeug.search(query)
+            hits = aeug.search(query, 500)
 
             rank = 0
             for hit in hits:
