@@ -1,7 +1,5 @@
 import textwrap
 
-from transformers import AutoModel, AutoTokenizer
-
 from aeug.contriever import Contriever
 from aeug.exceptions import InsufficientQuestionsError
 from aeug.generation.generator import Generator

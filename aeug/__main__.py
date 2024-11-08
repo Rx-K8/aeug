@@ -16,7 +16,7 @@ from aeug.utils.typing import ValidationFormat
 def main():
     # model_id = "meta-llama/Llama-3.1-70B-Instruct"
     # hyde = Hyde(model_id)
-    bench_mark = "trec2020"
+    bench_mark = "trec2019"
     aeug = Aeug(
         "hugging-quants/Meta-Llama-3.1-70B-Instruct-AWQ-INT4", bench_mark
     )

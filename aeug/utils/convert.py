@@ -48,4 +48,4 @@ class TRECConvert(BaseConvert):
         )
 
 
-CONVERTERS = {"beir_trec_covid": BEIRConvert(), "trec2020": TRECConvert()}
+CONVERTERS = {"beir_trec_covid": BEIRConvert(), "trec2020": TRECConvert(), "trec2019": TRECConvert()}
